@@ -11,6 +11,7 @@ class PetBrowser extends React.Component {
       this.props.renderPets.map( pet =>
         <Pet
         petObj = {pet}
+        key = {pet.id}
         />
   )}
 
