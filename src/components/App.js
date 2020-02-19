@@ -52,7 +52,7 @@ let endpoint = '/api/pets'
               <Filters findPets={this.onFindPetsClick} typeOfPet = {this.changeType}/>
             </div>
             <div className="twelve wide column">
-              <PetBrowser />
+              <PetBrowser renderPets={this.state.pets}/>
             </div>
           </div>
         </div>

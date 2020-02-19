@@ -2,6 +2,7 @@ import React from 'react'
 
 class Pet extends React.Component {
   render() {
+    console.log("In the pet component",this.props)
     return (
       <div className="card">
         <div className="content">
