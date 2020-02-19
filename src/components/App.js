@@ -23,13 +23,22 @@ class App extends React.Component {
     })
   }
 
-// FetchPets = () => {
-//     fetch('/api/pets')
-//     .then(res => res.json())
-//     .then(petsArray => {
-//       console.log(petsArray)
-//     })
-//   }
+
+onFindPetsClick = (event) => {
+
+let endpoint = '/api/pets'
+  if (this.state.filters.type !== 'all') {
+    endpoint += `?type=${this.state.filters.type}`
+  }
+
+  fetch(endpoint)
+  .then(res => res.json())
+  .then(pets => {
+      this.setState({
+      pets: pets
+    })
+  })
+}
 
   render() {
     return (
@@ -40,7 +49,7 @@ class App extends React.Component {
         <div className="ui container">
           <div className="ui grid">
             <div className="four wide column">
-              <Filters typeOfPet = {this.changeType}/>
+              <Filters findPets={this.onFindPetsClick} typeOfPet = {this.changeType}/>
             </div>
             <div className="twelve wide column">
               <PetBrowser />
