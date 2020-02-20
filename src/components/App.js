@@ -23,6 +23,10 @@ class App extends React.Component {
     })
   }
 
+clickToAdopt = (event) => {
+  console.log(event)
+}
+
 
 onFindPetsClick = (event) => {
 
@@ -52,7 +56,7 @@ let endpoint = '/api/pets'
               <Filters findPets={this.onFindPetsClick} typeOfPet = {this.changeType}/>
             </div>
             <div className="twelve wide column">
-              <PetBrowser renderPets={this.state.pets}/>
+              <PetBrowser renderPets={this.state.pets} adoptPet = {this.state.pets.clickToAdopt}/>
             </div>
           </div>
         </div>
